@@ -34,4 +34,6 @@ jobs:
     
     # Rspec
     - name: rspec-tests
-      uses: bartosian/rspec-tests-docker-action@v1
+      run: |
+          bundle install
+          bundle exec rake spec
