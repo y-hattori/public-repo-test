@@ -31,3 +31,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    
+    # Rspec
+    - name: rspec-tests
+      uses: bartosian/rspec-tests-docker-action@v1
