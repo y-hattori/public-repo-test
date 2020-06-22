@@ -22,11 +22,14 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
     # Rspec
     - name: prepare rspec
-      run: |
-          sudo gem install bundler:1.17.2
-          bundle install
-          
+      run: bundle install
+ 
     - name: run rspec
       run: bundle exec rake spec
