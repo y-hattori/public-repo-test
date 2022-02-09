@@ -18,4 +18,4 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://badstore.hasumi.net/'
           rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+          cmd_options: '-a -j -z "-config view.locale=ja_JP"'
