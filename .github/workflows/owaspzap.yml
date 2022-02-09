@@ -1,7 +1,21 @@
 name: OWASP ZAP Actions
+
 on: [push]
-steps:
-  - name: ZAP Scan
-    uses: zaproxy/action-full-scan@v0.3.0
-    with:
-      target: 'https://badstore.hasumi.net/'
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the webapplication
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.3.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: 'owasp/zap2docker-stable'
+          target: 'https://badstore.hasumi.net/'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
