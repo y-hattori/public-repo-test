@@ -1,6 +1,6 @@
 name: OWASP ZAP Actions
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   zap_scan:
